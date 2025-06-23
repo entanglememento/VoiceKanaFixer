@@ -1,0 +1,1360 @@
+{
+  "layouts": {
+    "topmenu": {
+      "component": "DefaultTopMenu",
+      "customizedData": {
+        "headerTitle": "メニュー",
+        "navText": "以下から手続きを選択してください。"
+      },
+      "header": 1
+    },
+    "headers": [
+      {
+        "component": "Header",
+        "customizedData": {
+          "displayBackBtn": false,
+          "displayNextBtn": false,
+          "displayQuitBtn": true
+        }
+      },
+      {
+        "component": "Header",
+        "customizedData": {
+          "displayBackBtn": false,
+          "displayNextBtn": false,
+          "displayQuitBtn": false
+        }
+      }
+    ],
+    "nodecontents": [
+      {
+        "stepbar": {
+          "component": "Stepbar",
+          "customizedData": {
+            "showChildNodeTitle": false
+          }
+        }
+      }
+    ]
+  },
+  "codedef": {
+    "codes": [
+      {
+        "codeid": "transactionType",
+        "label": "取引種別",
+        "items": [
+          {
+            "label": "預入",
+            "value": "deposit"
+          },
+          {
+            "label": "払出",
+            "value": "payment"
+          },
+          {
+            "label": "振込",
+            "value": "transfer"
+          }
+        ]
+      },
+      {
+        "codeid": "requiredDocument",
+        "label": "必要書類",
+        "items": [
+          {
+            "label": "運転免許証",
+            "value": "driverLisence"
+          },
+          {
+            "label": "パスポート",
+            "value": "passport"
+          },
+          {
+            "label": "個人番号カード",
+            "value": "myNumberCard"
+          },
+          {
+            "label": "健康保険証",
+            "value": "healthInsuranceCard"
+          },
+          {
+            "label": "通帳",
+            "value": "passbook"
+          }
+        ]
+      },
+      {
+        "codeid": "financialInstitution",
+        "label": "金融機関名",
+        "items": [
+          {
+            "label": "みずほ銀行",
+            "value": "mizuho"
+          },
+          {
+            "label": "三菱UFJ銀行",
+            "value": "mitsubishufj"
+          },
+          {
+            "label": "三井住友銀行",
+            "value": "mitsuisumitomo"
+          },
+          {
+            "label": "りそな銀行",
+            "value": "risona"
+          },
+          {
+            "label": "埼玉りそな銀行",
+            "value": "saitamarisona"
+          },
+          {
+            "label": "ゆうちょ銀行",
+            "value": "yuuho"
+          },
+          {
+            "label": "その他",
+            "value": "others"
+          }
+        ]
+      },
+      {
+        "codeid": "language",
+        "label": "言語",
+        "items": [
+          {
+            "label": "日本語",
+            "value": "Japanese"
+          },
+          {
+            "label": "English",
+            "value": "English"
+          },
+          {
+            "label": "中文",
+            "value": "Chinese"
+          }
+        ]
+      },
+      {
+        "codeid": "recipientsCountry",
+        "label": "振込先国名",
+        "items": [
+          {
+            "label": "日本",
+            "value": "Japan"
+          },
+          {
+            "label": "その他",
+            "value": "Others"
+          }
+        ]
+      },
+      {
+        "codeid": "howToSearchBranch",
+        "label": "支店名検索方法",
+        "items": [
+          {
+            "label": "支店名",
+            "value": "branchName"
+          },
+          {
+            "label": "支店コード",
+            "value": "branchCode"
+          }
+        ]
+      }
+    ],
+    "errcodedef": {
+      "codes": []
+    },
+    "commonData": {},
+    "wfmanager": {
+      "domainWorkFlows": [
+        {
+          "id": "f85d0200-d098-4de8-9f97-8f067a019fd4",
+          "headerTitle": "",
+          "menuTitle": "AIアシスタント",
+          "menuSubTitle": "",
+          "domainData": {
+            "transactionType": {
+              "index": 1,
+              "name": "取引種別",
+              "type": "string",
+              "value": ""
+            },
+            "requiredDocument": {
+              "index": 2,
+              "name": "必要書類",
+              "type": "string",
+              "value": ""
+            },
+            "payoutAmount": {
+              "index": 3,
+              "name": "払出金額",
+              "type": "string",
+              "value": ""
+            },
+            "transferAmount": {
+              "index": 4,
+              "name": "振込金額",
+              "type": "string",
+              "value": ""
+            },
+            "depositAmount": {
+              "index": 5,
+              "name": "預入金額",
+              "type": "string",
+              "value": ""
+            },
+            "financialInstitution": {
+              "index": 6,
+              "name": "金融機関名",
+              "type": "string",
+              "value": ""
+            },
+            "language": {
+              "index": 7,
+              "name": "言語",
+              "type": "string",
+              "value": ""
+            },
+            "accountNumber": {
+              "index": 8,
+              "name": "口座番号",
+              "type": "string",
+              "value": ""
+            },
+            "recipientsCountry": {
+              "index": 9,
+              "name": "振込先国名",
+              "type": "string",
+              "value": ""
+            },
+            "howToSearchBranch": {
+              "index": 10,
+              "name": "支店名検索方法",
+              "type": "string",
+              "value": ""
+            }
+          },
+          "rootWorkflow": {
+            "id": "18bd6b90-cebf-4d2b-bd67-d3b41d0feee5",
+            "workflow": [
+              {
+                "id": "e1aeclae-e96a-47f8-9b1c-da3135710d54",
+                "title": "未設定",
+                "type": "G",
+                "group": {
+                  "id": "6be3bd48-53db-4f7a-aab5-757821bcac97",
+                  "workflow": [
+                    {
+                      "id": "7fc55acb-6015-4e11-a384-7d97fc9418d4",
+                      "title": "言語選択",
+                      "headerTitle": "",
+                      "type": "G",
+                      "content": {
+                        "component": "GeneralTemplate",
+                        "customizedData": {
+                          "items": [
+                            {
+                              "type": "CodeButtonFeild",
+                              "id": "0b72605e-90a7-4346-bfb0-320eeb339332",
+                              "field": "language",
+                              "codeid": "language"
+                            }
+                          ]
+                        },
+                        "navText": "言語を選択してください。\nPlease select your language.",
+                        "header": 0,
+                        "footer": {
+                          "component": "Footer",
+                          "customizedData": {
+                            "backBtn": {
+                              "display": true
+                            },
+                            "nextBtn": {
+                              "display": true
+                            },
+                            "additionalNextBtn1": {
+                              "display": false
+                            },
+                            "additionalNextBtn2": {
+                              "display": false
+                            }
+                          }
+                        },
+                        "nodecontent": 0,
+                        "isBanker": false
+                      }
+                    },
+                    {
+                      "id": "64508de9-1ed5-4c6b-9473-0720f1c4be1b",
+                      "title": "取引種別選択",
+                      "headerTitle": "",
+                      "type": "R",
+                      "content": {
+                        "component": "GeneralTemplate",
+                        "customizedData": {
+                          "items": [
+                            {
+                              "type": "CodeButtonFeild",
+                              "id": "bbd3dc6d-8f06-46b3-bf08-8f15def42519",
+                              "field": "transactionType",
+                              "codeid": "transactionType"
+                            }
+                          ]
+                        },
+                        "navText": "ご希望の取引を選択してください。",
+                        "header": 0,
+                        "footer": {
+                          "component": "Footer",
+                          "customizedData": {
+                            "backBtn": {
+                              "display": true
+                            },
+                            "nextBtn": {
+                              "display": true
+                            },
+                            "additionalNextBtn1": {
+                              "display": false
+                            },
+                            "additionalNextBtn2": {
+                              "display": false
+                            }
+                          }
+                        },
+                        "nodecontent": 0,
+                        "isBanker": false
+                      }
+                    },
+                    {
+                      "id": "817f7d36-8d88-4269-a5f3-7c86caa8ea36",
+                      "type": "S",
+                      "branches": [
+                        {
+                          "id": "e5461a96-8e69-48b7-b5b8-e9cf392917ef",
+                          "workflow": [
+                            {
+                              "id": "23a4497f-2c0c-4b80-a3d1-673e24715ded",
+                              "title": "預入金額入力",
+                              "headerTitle": "",
+                              "type": "R",
+                              "content": {
+                                "component": "GeneralTemplate",
+                                "customizedData": {
+                                  "items": [
+                                    {
+                                      "type": "FormInputTextField",
+                                      "id": "c9455e03-9b77-465c-8ba4-626e548513a5",
+                                      "isReveal": true,
+                                      "field": "depositAmount",
+                                      "label": "預入金額"
+                                    }
+                                  ]
+                                },
+                                "navText": "預入金額を入力してください。",
+                                "header": 0,
+                                "footer": {
+                                  "component": "Footer",
+                                  "customizedData": {
+                                    "backBtn": {
+                                      "display": true
+                                    },
+                                    "nextBtn": {
+                                      "display": true
+                                    },
+                                    "additionalNextBtn1": {
+                                      "display": false
+                                    },
+                                    "additionalNextBtn2": {
+                                      "display": false
+                                    }
+                                  }
+                                },
+                                "nodecontent": 0,
+                                "isBanker": false
+                              }
+                            },
+                            {
+                              "id": "4dee60e7-e6f5-468a-b868-3c36f051a2c3",
+                              "title": "預入金額確認",
+                              "headerTitle": "",
+                              "type": "R",
+                              "content": {
+                                "component": "GeneralTemplate",
+                                "customizedData": {
+                                  "items": [
+                                    {
+                                      "type": "DomainDataWithLabelDisplayFeild",
+                                      "id": "bd762c0a-abb7-4e39-9bce-649eecfb31ea",
+                                      "field": "depositAmount",
+                                      "label": "預入金額"
+                                    }
+                                  ]
+                                },
+                                "navText": "預入金額が正しいことを確認してください。",
+                                "header": 0,
+                                "footer": {
+                                  "component": "Footer",
+                                  "customizedData": {
+                                    "backBtn": {
+                                      "display": true
+                                    },
+                                    "nextBtn": {
+                                      "display": true
+                                    },
+                                    "additionalNextBtn1": {
+                                      "display": false
+                                    },
+                                    "additionalNextBtn2": {
+                                      "display": false
+                                    }
+                                  }
+                                },
+                                "nodecontent": 0,
+                                "isBanker": false
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "id": "2efcbf2e-c197-4066-8656-c4cba5ec8f45",
+                          "workflow": [
+                            {
+                              "id": "a6895f06-f6eb-4039-bc89-856781a96b19",
+                              "title": "払出金額入力",
+                              "headerTitle": "",
+                              "type": "R",
+                              "content": {
+                                "component": "GeneralTemplate",
+                                "customizedData": {
+                                  "items": [
+                                    {
+                                      "type": "FormInputTextField",
+                                      "id": "0ddf1bb1-c443-4a4b-afaa-f1c2ac4436a",
+                                      "isReveal": true,
+                                      "field": "payoutAmount",
+                                      "label": "払出金額"
+                                    }
+                                  ]
+                                },
+                                "navText": "払出金額を入力してください。",
+                                "header": 0,
+                                "footer": {
+                                  "component": "Footer",
+                                  "customizedData": {
+                                    "backBtn": {
+                                      "display": true
+                                    },
+                                    "nextBtn": {
+                                      "display": true
+                                    },
+                                    "additionalNextBtn1": {
+                                      "display": false
+                                    },
+                                    "additionalNextBtn2": {
+                                      "display": false
+                                    }
+                                  }
+                                },
+                                "nodecontent": 0,
+                                "isBanker": false
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "id": "8ba09873-96c7-4035-87e1-453d2d170890",
+                          "type": "S",
+                          "branches": [
+                            {
+                              "id": "3596344c-7363-493f-982e-fed442669b90",
+                              "workflow": [
+                                {
+                                  "id": "a1cc97a1-b75d-452d-bb78-a48a7bc54159",
+                                  "title": "払出金額確認",
+                                  "headerTitle": "",
+                                  "type": "R",
+                                  "content": {
+                                    "component": "GeneralTemplate",
+                                    "customizedData": {
+                                      "items": [
+                                        {
+                                          "type": "DomainDataWithLabelDisplayFeild",
+                                          "id": "bfe797cd-aaf4-4330-a049-50c45a594f82",
+                                          "field": "payoutAmount",
+                                          "label": "払出金額",
+                                          "codeid": ""
+                                        }
+                                      ]
+                                    },
+                                    "navText": "払出金額が正しいことを確認してください。",
+                                    "header": 0,
+                                    "footer": {
+                                      "component": "Footer",
+                                      "customizedData": {
+                                        "backBtn": {
+                                          "display": true
+                                        },
+                                        "nextBtn": {
+                                          "display": true
+                                        },
+                                        "additionalNextBtn1": {
+                                          "display": false
+                                        },
+                                        "additionalNextBtn2": {
+                                          "display": false
+                                        }
+                                      }
+                                    },
+                                    "nodecontent": 0,
+                                    "isBanker": false
+                                  }
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "id": "df17721a-a262-496c-a2f0-5fa7530e890d",
+                          "workflow": [
+                            {
+                              "id": "4cd3db7b-08f7-4119-b09b-e3e07f579997",
+                              "title": "手続き不可",
+                              "headerTitle": "",
+                              "type": "R",
+                              "content": {
+                                "component": "GeneralTemplate",
+                                "customizedData": {
+                                  "items": [],
+                                  "navText": "ご希望のお取引は当システムでは行っていただけません。窓口をご利用ください。"
+                                },
+                                "header": 0,
+                                "footer": {
+                                  "component": "Footer",
+                                  "customizedData": {
+                                    "backBtn": {
+                                      "display": true
+                                    },
+                                    "nextBtn": {
+                                      "display": true
+                                    },
+                                    "additionalNextBtn1": {
+                                      "display": false
+                                    },
+                                    "additionalNextBtn2": {
+                                      "display": false
+                                    }
+                                  }
+                                },
+                                "nodecontent": 0,
+                                "isBanker": false
+                              }
+                            }
+                          ],
+                          "conditions": [
+                            {
+                              "id": "",
+                              "operator": {
+                                "type": "AND",
+                                "id": "",
+                                "child": [
+                                  {
+                                    "type": "STATE",
+                                    "id": "",
+                                    "field": "payoutAmount",
+                                    "value": "200000",
+                                    "fieldIndex": "",
+                                    "fieldKey": "",
+                                    "state": "EQUALS_LESS_THAN"
+                                  }
+                                ]
+                              },
+                              "branchNo": 0,
+                              "chosen": false,
+                              "selected": false
+                            },
+                            {
+                              "id": "",
+                              "operator": {
+                                "type": "AND",
+                                "id": "",
+                                "child": [
+                                  {
+                                    "type": "STATE",
+                                    "id": "",
+                                    "field": "payoutAmount",
+                                    "value": "200000",
+                                    "fieldIndex": "",
+                                    "fieldKey": "",
+                                    "state": "GREATER"
+                                  }
+                                ]
+                              },
+                              "branchNo": 1,
+                              "chosen": false,
+                              "selected": false
+                            }
+                          ]
+                        },
+                        {
+                          "id": "08d7cf2e-1e82-4e56-908f-39a84f42f881",
+                          "workflow": [
+                            {
+                              "id": "4f793c17-2048-4011-81ad-7fcc3a445120",
+                              "title": "振込先国確認",
+                              "headerTitle": "",
+                              "type": "R",
+                              "content": {
+                                "component": "GeneralTemplate",
+                                "customizedData": {
+                                  "items": [
+                                    {
+                                      "type": "CodeButtonFeild",
+                                      "id": "09135693-e75d-4e69-bb07-b0097a82c2cd",
+                                      "field": "recipientsCountry",
+                                      "codeid": "recipientsCountry"
+                                    }
+                                  ]
+                                },
+                                "navText": "お振込先の国を選択してください。",
+                                "header": 0,
+                                "footer": {
+                                  "component": "Footer",
+                                  "customizedData": {
+                                    "backBtn": {
+                                      "display": true
+                                    },
+                                    "nextBtn": {
+                                      "display": true
+                                    },
+                                    "additionalNextBtn1": {
+                                      "display": false
+                                    },
+                                    "additionalNextBtn2": {
+                                      "display": false
+                                    }
+                                  }
+                                },
+                                "nodecontent": 0,
+                                "isBanker": false
+                              }
+                            },
+                            {
+                              "id": "77c5f840-e10a-4043-833a-c39a3714c820",
+                              "type": "S",
+                              "branches": [
+                                {
+                                  "id": "6c4128fd-ed24-4d6f-a58f-258907a13041",
+                                  "workflow": [
+                                    {
+                                      "id": "95417713-bb76-45d3-9819-ccb75e616c4a",
+                                      "title": "金融機関選択",
+                                      "headerTitle": "",
+                                      "type": "R",
+                                      "content": {
+                                        "component": "GeneralTemplate",
+                                        "customizedData": {
+                                          "items": [
+                                            {
+                                              "type": "CodeButtonFeild",
+                                              "id": "cfc616c4-a1d2-4749-be95-6e9d7e0eb49d",
+                                              "field": "financialInstitution",
+                                              "codeid": "financialInstitution"
+                                            }
+                                          ]
+                                        },
+                                        "navText": "お振込先の金融機関を選択してください。",
+                                        "header": 0,
+                                        "footer": {
+                                          "component": "Footer",
+                                          "customizedData": {
+                                            "backBtn": {
+                                              "display": true
+                                            },
+                                            "nextBtn": {
+                                              "display": true
+                                            },
+                                            "additionalNextBtn1": {
+                                              "display": false
+                                            },
+                                            "additionalNextBtn2": {
+                                              "display": false
+                                            }
+                                          }
+                                        },
+                                        "nodecontent": 0,
+                                        "isBanker": false
+                                      }
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "id": "9b8e2a2a-cd76-45d2-ad96-c82d263629d8",
+                              "type": "S",
+                              "branches": [
+                                {
+                                  "id": "cbe120d-edb7-43d3-a46a-f41ec3f86cf5",
+                                  "workflow": []
+                                },
+                                {
+                                  "id": "ff1fd03e-ea32-4e9b-a508-964011eb776c",
+                                  "workflow": [
+                                    {
+                                      "id": "fb21b120-910a-439b-8d6e-dadafae70365",
+                                      "title": "金融機関検索",
+                                      "headerTitle": "",
+                                      "type": "R",
+                                      "content": {
+                                        "component": "GeneralTemplate",
+                                        "customizedData": {
+                                          "items": [],
+                                          "navText": "お振込先の金融機関を検索します。 一文字以上入力してください。"
+                                        },
+                                        "header": 0,
+                                        "footer": {
+                                          "component": "Footer",
+                                          "customizedData": {
+                                            "backBtn": {
+                                              "display": true
+                                            },
+                                            "nextBtn": {
+                                              "display": true
+                                            },
+                                            "additionalNextBtn1": {
+                                              "display": false
+                                            },
+                                            "additionalNextBtn2": {
+                                              "display": false
+                                            }
+                                          }
+                                        },
+                                        "nodecontent": 0,
+                                        "isBanker": false
+                                      }
+                                    }
+                                  ]
+                                }
+                              ],
+                              "conditions": [
+                                {
+                                  "id": "",
+                                  "operater": {
+                                    "type": "AND",
+                                    "id": "",
+                                    "child": [
+                                      {
+                                        "type": "STATE",
+                                        "id": "",
+                                        "field": "financialInstitution",
+                                        "value": "others",
+                                        "fieldIndex": "",
+                                        "fieldKey": "",
+                                        "state": "NOT_EQUALS"
+                                      }
+                                    ]
+                                  },
+                                  "branchNo": 0,
+                                  "chosen": false,
+                                  "selected": false
+                                },
+                                {
+                                  "id": "",
+                                  "operater": {
+                                    "type": "AND",
+                                    "id": "",
+                                    "child": [
+                                      {
+                                        "type": "STATE",
+                                        "id": "",
+                                        "field": "financialInstitution",
+                                        "value": "others",
+                                        "fieldIndex": "",
+                                        "fieldKey": "",
+                                        "state": "NOT_EQUALS"
+                                      }
+                                    ]
+                                  },
+                                  "branchNo": 1,
+                                  "chosen": false,
+                                  "selected": false
+                                }
+                              ]
+                            },
+                            {
+                              "id": "2bd55f23-0c4d-45c3-b952-8519f4363428",
+                              "title": "支店名検索方法選択",
+                              "headerTitle": "",
+                              "type": "R",
+                              "content": {
+                                "component": "GeneralTemplate",
+                                "customizedData": {
+                                  "items": [
+                                    {
+                                      "type": "CodeButtonFeild",
+                                      "id": "fba3ffdf-ff25-46b5-883c-2b5253bc5a38",
+                                      "field": "howToSearchBranch",
+                                      "codeid": "howToSearchBranch"
+                                    }
+                                  ]
+                                },
+                                "navText": "支店名検索方法を選択してください。",
+                                "header": 0,
+                                "footer": {
+                                  "component": "Footer",
+                                  "customizedData": {
+                                    "backBtn": {
+                                      "display": true
+                                    },
+                                    "nextBtn": {
+                                      "display": true
+                                    },
+                                    "additionalNextBtn1": {
+                                      "display": false
+                                    },
+                                    "additionalNextBtn2": {
+                                      "display": false
+                                    }
+                                  }
+                                },
+                                "nodecontent": 0,
+                                "isBanker": false
+                              }
+                            },
+                            {
+                              "id": "f636373a-d546-423e-8044-d0a8accfb927",
+                              "type": "S",
+                              "branches": [
+                                {
+                                  "id": "89e9571b-3928-4c13-831f-caf0882ce6e8",
+                                  "workflow": [
+                                    {
+                                      "id": "8f015d6f-974c-4a26-8c8e-476dc5e354ef",
+                                      "title": "支店名で検索",
+                                      "headerTitle": "",
+                                      "type": "R",
+                                      "content": {
+                                        "component": "GeneralTemplate",
+                                        "customizedData": {
+                                          "items": [],
+                                          "navText": "支店名で検索します。一文字以上入力してください。"
+                                        },
+                                        "header": 0,
+                                        "footer": {
+                                          "component": "Footer",
+                                          "customizedData": {
+                                            "backBtn": {
+                                              "display": true
+                                            },
+                                            "nextBtn": {
+                                              "display": true
+                                            },
+                                            "additionalNextBtn1": {
+                                              "display": false
+                                            },
+                                            "additionalNextBtn2": {
+                                              "display": false
+                                            }
+                                          }
+                                        },
+                                        "nodecontent": 0,
+                                        "isBanker": false
+                                      }
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "id": "89ac70cd-90f8-45db-ad2e-1e0a1926508b",
+                              "workflow": [
+                                {
+                                  "id": "a01f4d31-db81-4e28-a8b8-235db4065139",
+                                  "title": "支店コードで検索",
+                                  "headerTitle": "",
+                                  "type": "R",
+                                  "content": {
+                                    "component": "GeneralTemplate",
+                                    "customizedData": {
+                                      "items": [],
+                                      "navText": "支店コードで検索します。3桁の支店コードを入力してください。"
+                                    },
+                                    "header": 0,
+                                    "footer": {
+                                      "component": "Footer",
+                                      "customizedData": {
+                                        "backBtn": {
+                                          "display": true
+                                        },
+                                        "nextBtn": {
+                                          "display": true
+                                        },
+                                        "additionalNextBtn1": {
+                                          "display": false
+                                        },
+                                        "additionalNextBtn2": {
+                                          "display": false
+                                        }
+                                      }
+                                    },
+                                    "nodecontent": 0,
+                                    "isBanker": false
+                                  }
+                                }
+                              ],
+                              "conditions": [
+                                {
+                                  "id": "",
+                                  "operater": {
+                                    "type": "AND",
+                                    "id": "",
+                                    "child": [
+                                      {
+                                        "type": "STATE",
+                                        "id": "",
+                                        "field": "howToSearchBranch",
+                                        "value": "branchName",
+                                        "fieldIndex": "",
+                                        "fieldKey": "",
+                                        "state": "EQUALS"
+                                      }
+                                    ]
+                                  },
+                                  "branchNo": 0,
+                                  "chosen": false,
+                                  "selected": false
+                                },
+                                {
+                                  "id": "",
+                                  "operater": {
+                                    "type": "AND",
+                                    "id": "",
+                                    "child": [
+                                      {
+                                        "type": "STATE",
+                                        "id": "",
+                                        "field": "howToSearchBranch",
+                                        "value": "branchCode",
+                                        "fieldIndex": "",
+                                        "fieldKey": "",
+                                        "state": "EQUALS"
+                                      }
+                                    ]
+                                  },
+                                  "branchNo": 1,
+                                  "chosen": false,
+                                  "selected": false
+                                }
+                              ]
+                            },
+                            {
+                              "id": "3ac3e45a-6c7a-46fb-9cda-649c8839ffd3",
+                              "title": "口座番号入力",
+                              "headerTitle": "",
+                              "type": "R",
+                              "content": {
+                                "component": "GeneralTemplate",
+                                "customizedData": {
+                                  "items": [
+                                    {
+                                      "type": "FormInputTextField",
+                                      "id": "0230712b-e873-4384-acef-3980c642c2c8",
+                                      "isReveal": true,
+                                      "field": "accountNumber",
+                                      "label": "口座番号"
+                                    }
+                                  ]
+                                },
+                                "navText": "口座番号を入力してください。",
+                                "header": 0,
+                                "footer": {
+                                  "component": "Footer",
+                                  "customizedData": {
+                                    "backBtn": {
+                                      "display": true
+                                    },
+                                    "nextBtn": {
+                                      "display": true
+                                    },
+                                    "additionalNextBtn1": {
+                                      "display": false
+                                    },
+                                    "additionalNextBtn2": {
+                                      "display": false
+                                    }
+                                  }
+                                },
+                                "nodecontent": 0,
+                                "isBanker": false
+                              }
+                            },
+                            {
+                              "id": "72829895-76e1-4085-83d4-3b436a85765f", 
+                              "title": "振込額入力",
+                              "headerTitle": "",
+                              "type": "R",
+                            "content": {
+                              "component": "GeneralTemplate",
+                              "customizedData": {
+                                "items": [
+                                  {
+                                    "type": "FormInputTextField",
+                                    "id": "444ac151-7627-4642-8118-dcb119cd1265",
+                                    "isReveal": true,
+                                    "field": "transferAmount",
+                                    "label": "振込金額"
+                                  }
+                                ]
+                              },
+                              "navText": "お振込になる金額を入力してください。",
+                              "header": 0,
+                              "footer": {
+                                "component": "Footer",
+                                "customizedData": {
+                                  "backBtn": {
+                                    "display": true
+                                  },
+                                  "nextBtn": {
+                                    "display": true
+                                  },
+                                  "additionalNextBtn1": {
+                                    "display": false
+                                  },
+                                  "additionalNextBtn2": {
+                                    "display": false
+                                  }
+                                }
+                              },
+                              "nodecontent": 0,
+                              "isBanker": false
+                            }
+                          },
+                          {
+                            "id": "996285c9-b548-4eda-8ead-69203a292c3e",
+                            "type": "S",
+                            "branches": [
+                              {
+                                "id": "b76df744-ff38-4ca3-90c9-74be5a1b5073",
+                                "workflow": [
+                                  {
+                                    "id": "d663d12f-2ae0-48b0-80a9-dfe320548bc3",
+                                    "title": "振込額確認",
+                                    "headerTitle": "",
+                                    "type": "R",
+                                    "content": {
+                                      "component": "GeneralTemplate",
+                                      "customizedData": {
+                                        "items": [
+                                          {
+                                            "type": "DomainDataWithLabelDisplayFeild",
+                                            "id": "8cf7ee6a-2015-4096-b96o-d185c7f5e00b",
+                                            "field": "transferAmount",
+                                            "label": "振込金額"
+                                          }
+                                        ]
+                                      },
+                                      "navText": "振込金額が正しいことをご確認ください。",
+                                      "header": 0,
+                                      "footer": {
+                                        "component": "Footer",
+                                        "customizedData": {
+                                          "backBtn": {
+                                            "display": true
+                                          },
+                                          "nextBtn": {
+                                            "display": true
+                                          },
+                                          "additionalNextBtn1": {
+                                            "display": false
+                                          },
+                                          "additionalNextBtn2": {
+                                            "display": false
+                                          }
+                                        }
+                                      },
+                                      "nodecontent": 0,
+                                      "isBanker": false
+                                    }
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "id": "4bc80ef2-d461-4f3e-a0b5-2598c74572f1",
+                            "workflow": [
+                              {
+                                "id": "0a25e2e5-e377-4ad9-85c6-392940b1b024",
+                                "title": "手続き不可",
+                                "headerTitle": "",
+                                "type": "R",
+                                "content": {
+                                  "component": "GeneralTemplate",
+                                  "customizedData": {
+                                    "items": [],
+                                    "navText": "ご希望のお取引は当システムでは行っていただけません。窓口をご利用ください。"
+                                  },
+                                  "header": 0,
+                                  "footer": {
+                                    "component": "Footer",
+                                    "customizedData": {
+                                      "backBtn": {
+                                        "display": true
+                                      },
+                                      "nextBtn": {
+                                        "display": true
+                                      },
+                                      "additionalNextBtn1": {
+                                        "display": false
+                                      },
+                                      "additionalNextBtn2": {
+                                        "display": false
+                                      }
+                                    }
+                                  },
+                                  "nodecontent": 0,
+                                  "isBanker": false
+                                }
+                              }
+                            ],
+                            "conditions": [
+                              {
+                                "id": "",
+                                "operater": {
+                                  "type": "AND",
+                                  "id": "",
+                                  "child": [
+                                    {
+                                      "type": "STATE",
+                                      "id": "",
+                                      "field": "transferAmount",
+                                      "value": "200000",
+                                      "fieldIndex": "",
+                                      "fieldKey": "",
+                                      "state": "EQUALS_LESS_THAN"
+                                    }
+                                  ]
+                                },
+                                "branchNo": 0,
+                                "chosen": false,
+                                "selected": false
+                              },
+                              {
+                                "id": "",
+                                "operater": {
+                                  "type": "AND",
+                                  "id": "",
+                                  "child": [
+                                    {
+                                      "type": "STATE",
+                                      "id": "",
+                                      "field": "transferAmount",
+                                      "value": "200000",
+                                      "fieldIndex": "",
+                                      "fieldKey": "",
+                                      "state": "GREATER"
+                                    }
+                                  ]
+                                },
+                                "branchNo": 1,
+                                "chosen": false,
+                                "selected": false
+                              }
+                            ]
+                          },
+                          {
+                            "id": "4ea71282-4375-4c23-9ea5-1ad7aa240282",
+                            "workflow": [
+                              {
+                                "id": "1ee7b1bb-c0eb-404b-85f4-9cae66f7504f",
+                                "title": "手続き不可",
+                                "headerTitle": "",
+                                "type": "R",
+                                "content": {
+                                  "component": "GeneralTemplate",
+                                  "customizedData": {
+                                    "items": [],
+                                    "navText": "ご希望のお取引は当システムでは行っていただけません。窓口をご利用ください。"
+                                  },
+                                  "header": 0,
+                                  "footer": {
+                                    "component": "Footer",
+                                    "customizedData": {
+                                      "backBtn": {
+                                        "display": true
+                                      },
+                                      "nextBtn": {
+                                        "display": true
+                                      },
+                                      "additionalNextBtn1": {
+                                        "display": false
+                                      },
+                                      "additionalNextBtn2": {
+                                        "display": false
+                                      }
+                                    }
+                                  },
+                                  "nodecontent": 0,
+                                  "isBanker": false
+                                }
+                              }
+                            ],
+                            "conditions": [
+                              {
+                                "id": "",
+                                "operater": {
+                                  "type": "AND",
+                                  "id": "",
+                                  "child": [
+                                    {
+                                      "type": "STATE",
+                                      "id": "",
+                                      "field": "recipientsCountry",
+                                      "value": "Japan",
+                                      "fieldIndex": "",
+                                      "fieldKey": "",
+                                      "state": "EQUALS"
+                                    }
+                                  ]
+                                },
+                                "branchNo": 0,
+                                "chosen": false,
+                                "selected": false
+                              },
+                              {
+                                "id": "",
+                                "operater": {
+                                  "type": "AND",
+                                  "id": "",
+                                  "child": [
+                                    {
+                                      "type": "STATE",
+                                      "id": "",
+                                      "field": "recipientsCountry",
+                                      "value": "Others",
+                                      "fieldIndex": "",
+                                      "fieldKey": "",
+                                      "state": "EQUALS"
+                                    }
+                                  ]
+                                },
+                                "branchNo": 1,
+                                "chosen": false,
+                                "selected": false
+                              }
+                            ]
+                          }
+                        ],
+                      "conditions": [
+                        {
+                          "id": "",
+                          "operater": {
+                            "type": "AND",
+                            "id": "",
+                            "child": [
+                              {
+                                "type": "STATE",
+                                "id": "",
+                                "field": "transactionType",
+                                "value": "deposit",
+                                "fieldIndex": "",
+                                "fieldKey": "",
+                                "state": "EQUALS"
+                              }
+                            ]
+                          },
+                          "branchNo": 0,
+                          "chosen": false,
+                          "selected": false
+                        },
+                        {
+                          "id": "",
+                          "operater": {
+                            "type": "AND",
+                            "id": "",
+                            "child": [
+                              {
+                                "type": "STATE",
+                                "id": "",
+                                "field": "transactionType",
+                                "value": "payout",
+                                "fieldIndex": "",
+                                "fieldKey": "",
+                                "state": "EQUALS"
+                              }
+                            ]
+                          },
+                          "branchNo": 1,
+                          "chosen": false,
+                          "selected": false
+                        },
+                        {
+                          "id": "",
+                          "operater": {
+                            "type": "AND",
+                            "id": "",
+                            "child": [
+                              {
+                                "type": "STATE",
+                                "id": "",
+                                "field": "transactionType",
+                                "value": "transfer",
+                                "fieldIndex": "",
+                                "fieldKey": "",
+                                "state": "EQUALS"
+                              }
+                            ]
+                          },
+                          "branchNo": 2,
+                          "chosen": false,
+                          "selected": false
+                        }
+                      ]
+                    },
+                    {
+                      "id": "e675e7e-5ffb-4936-b759-3f7bf84cb4a9",
+                      "title": "手続き完了",
+                      "headerTitle": "",
+                      "type": "R",
+                      "content": {
+                        "component": "DoneIconTemplate",
+                        "customizedData": {
+                          "items": []
+                        }
+                      },
+                      "header": 0,
+                      "footer": {
+                        "component": "Footer",
+                        "customizedData": {
+                          "backBtn": {
+                            "display": true
+                          },
+                          "nextBtn": {
+                            "display": true
+                          },
+                          "additionalNextBtn1": {
+                            "display": false
+                          },
+                          "additionalNextBtn2": {
+                            "display": false
+                          }
+                        }
+                      },
+                      "nodecontent": 0,
+                      "isBanker": false
+                    }
+                    }
+                },
+                "nodecontent": 0,
+                "isBanker": false
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "wcmanager": {}
+}

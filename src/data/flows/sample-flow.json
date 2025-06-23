@@ -1,0 +1,340 @@
+{
+  "version": "1.0",
+  "storeName": "サンプル店舗",
+  "languages": {
+    "ja": {
+      "languageSelection": true,
+      "settings": {
+        "autoStopSeconds": 3,
+        "voiceSpeed": 1.0,
+        "qrPassword": "1234",
+        "qrExpiryMinutes": 30
+      },
+      "nodes": {
+        "start": {
+          "id": "start",
+          "type": "message",
+          "content": "いらっしゃいませ！当店へようこそ。",
+          "voiceFile": "start_ja.wav",
+          "next": "menu"
+        },
+        "menu": {
+          "id": "menu",
+          "type": "choice",
+          "content": "どのようなご用件でしょうか？",
+          "voiceFile": "menu_ja.wav",
+          "choices": [
+            {
+              "id": "reservation",
+              "text": "予約について",
+              "keywords": ["予約", "席", "ブッキング", "テーブル"],
+              "excludeKeywords": ["キャンセル", "変更"],
+              "next": "reservation_menu"
+            },
+            {
+              "id": "menu_info",
+              "text": "メニューについて",
+              "keywords": ["メニュー", "料理", "食事", "飲み物"],
+              "excludeKeywords": ["予約"],
+              "next": "menu_info"
+            },
+            {
+              "id": "hours",
+              "text": "営業時間",
+              "keywords": ["営業時間", "時間", "開店", "閉店"],
+              "excludeKeywords": [],
+              "next": "hours_info"
+            },
+            {
+              "id": "access",
+              "text": "アクセス・駐車場",
+              "keywords": ["アクセス", "駐車場", "場所", "行き方"],
+              "excludeKeywords": [],
+              "next": "access_info"
+            }
+          ]
+        },
+        "reservation_menu": {
+          "id": "reservation_menu",
+          "type": "choice",
+          "content": "予約に関するご質問はどちらですか？",
+          "voiceFile": "reservation_menu_ja.wav",
+          "choices": [
+            {
+              "id": "make_reservation",
+              "text": "予約を取りたい",
+              "keywords": ["予約取る", "予約したい", "席を予約"],
+              "excludeKeywords": ["キャンセル", "変更"],
+              "next": "make_reservation"
+            },
+            {
+              "id": "cancel_reservation",
+              "text": "予約をキャンセル・変更したい",
+              "keywords": ["キャンセル", "変更", "取り消し"],
+              "excludeKeywords": [],
+              "next": "cancel_reservation"
+            },
+            {
+              "id": "check_reservation",
+              "text": "予約状況を確認したい",
+              "keywords": ["確認", "状況", "予約済み"],
+              "excludeKeywords": [],
+              "next": "check_reservation"
+            },
+            {
+              "id": "back_to_menu",
+              "text": "メインメニューに戻る",
+              "keywords": ["戻る", "メニュー"],
+              "excludeKeywords": [],
+              "next": "menu"
+            }
+          ]
+        },
+        "make_reservation": {
+          "id": "make_reservation",
+          "type": "message",
+          "content": "予約承ります。お電話またはオンライン予約をご利用ください。\n\n電話番号: 03-1234-5678\nオンライン予約: www.example.com/reservation\n\n営業時間: 11:00-22:00\n定休日: 毎週火曜日",
+          "voiceFile": "make_reservation_ja.wav",
+          "next": "end_with_qr"
+        },
+        "cancel_reservation": {
+          "id": "cancel_reservation",
+          "type": "message",
+          "content": "予約の変更・キャンセルは、お電話にて承っております。\n\n電話番号: 03-1234-5678\n受付時間: 10:00-21:00\n\n※当日のキャンセルは、なるべくお早めにご連絡ください。",
+          "voiceFile": "cancel_reservation_ja.wav",
+          "next": "end_with_qr"
+        },
+        "check_reservation": {
+          "id": "check_reservation",
+          "type": "message",
+          "content": "予約確認は、お電話またはオンラインで承っております。\n\n電話番号: 03-1234-5678\n確認サイト: www.example.com/check\n\n※予約番号をお手元にご用意ください。",
+          "voiceFile": "check_reservation_ja.wav",
+          "next": "end_with_qr"
+        },
+        "menu_info": {
+          "id": "menu_info",
+          "type": "message",
+          "content": "当店のメニューをご紹介いたします。\n\n・和食コース: 3,000円～\n・洋食コース: 2,500円～\n・お子様メニュー: 1,200円\n・飲み放題: +1,500円\n\n最新メニューは店頭でご確認ください。",
+          "voiceFile": "menu_info_ja.wav",
+          "next": "end_with_qr"
+        },
+        "hours_info": {
+          "id": "hours_info",
+          "type": "message",
+          "content": "営業時間のご案内です。\n\n営業時間: 11:00-22:00（ラストオーダー 21:30）\n定休日: 毎週火曜日\n\n※祝日・年末年始は営業時間が変更となる場合がございます。",
+          "voiceFile": "hours_info_ja.wav",
+          "next": "end_with_qr"
+        },
+        "access_info": {
+          "id": "access_info",
+          "type": "message",
+          "content": "アクセス・駐車場のご案内です。\n\n住所: 東京都渋谷区○○1-2-3\n最寄駅: JR山手線「渋谷駅」徒歩5分\n\n駐車場: 店舗前に3台分あり\n※満車の場合は近隣のコインパーキングをご利用ください。",
+          "voiceFile": "access_info_ja.wav",
+          "next": "end_with_qr"
+        },
+        "end_with_qr": {
+          "id": "end_with_qr",
+          "type": "message",
+          "content": "ご不明な点がございましたら、お気軽にお声がけください。\n\nこちらのQRコードから詳細情報をご確認いただけます。",
+          "voiceFile": "end_with_qr_ja.wav",
+          "next": "final"
+        },
+        "final": {
+          "id": "final",
+          "type": "choice",
+          "content": "他にご質問はございますか？",
+          "voiceFile": "final_ja.wav",
+          "choices": [
+            {
+              "id": "restart",
+              "text": "最初からやり直す",
+              "keywords": ["最初", "やり直し", "始めから"],
+              "excludeKeywords": [],
+              "next": "start"
+            },
+            {
+              "id": "finish",
+              "text": "終了する",
+              "keywords": ["終了", "終わり", "完了"],
+              "excludeKeywords": [],
+              "next": "thank_you"
+            }
+          ]
+        },
+        "thank_you": {
+          "id": "thank_you",
+          "type": "message",
+          "content": "ありがとうございました。またのご来店をお待ちしております。",
+          "voiceFile": "thank_you_ja.wav"
+        }
+      }
+    },
+    "en": {
+      "languageSelection": true,
+      "settings": {
+        "autoStopSeconds": 3,
+        "voiceSpeed": 1.0,
+        "qrPassword": "1234",
+        "qrExpiryMinutes": 30
+      },
+      "nodes": {
+        "start": {
+          "id": "start",
+          "type": "message",
+          "content": "Welcome to our restaurant!",
+          "voiceFile": "start_en.wav",
+          "next": "menu"
+        },
+        "menu": {
+          "id": "menu",
+          "type": "choice",
+          "content": "How may I help you today?",
+          "voiceFile": "menu_en.wav",
+          "choices": [
+            {
+              "id": "reservation",
+              "text": "About reservations",
+              "keywords": ["reservation", "booking", "table", "seat"],
+              "excludeKeywords": ["cancel", "change"],
+              "next": "reservation_menu"
+            },
+            {
+              "id": "menu_info",
+              "text": "About our menu",
+              "keywords": ["menu", "food", "dish", "drink"],
+              "excludeKeywords": ["reservation"],
+              "next": "menu_info"
+            },
+            {
+              "id": "hours",
+              "text": "Opening hours",
+              "keywords": ["hours", "time", "open", "close"],
+              "excludeKeywords": [],
+              "next": "hours_info"
+            },
+            {
+              "id": "access",
+              "text": "Access & Parking",
+              "keywords": ["access", "parking", "location", "directions"],
+              "excludeKeywords": [],
+              "next": "access_info"
+            }
+          ]
+        },
+        "reservation_menu": {
+          "id": "reservation_menu",
+          "type": "choice",
+          "content": "What would you like to know about reservations?",
+          "voiceFile": "reservation_menu_en.wav",
+          "choices": [
+            {
+              "id": "make_reservation",
+              "text": "Make a reservation",
+              "keywords": ["make", "book", "reserve"],
+              "excludeKeywords": ["cancel", "change"],
+              "next": "make_reservation"
+            },
+            {
+              "id": "cancel_reservation",
+              "text": "Cancel or change reservation",
+              "keywords": ["cancel", "change", "modify"],
+              "excludeKeywords": [],
+              "next": "cancel_reservation"
+            },
+            {
+              "id": "check_reservation",
+              "text": "Check reservation status",
+              "keywords": ["check", "status", "confirm"],
+              "excludeKeywords": [],
+              "next": "check_reservation"
+            },
+            {
+              "id": "back_to_menu",
+              "text": "Back to main menu",
+              "keywords": ["back", "main", "menu"],
+              "excludeKeywords": [],
+              "next": "menu"
+            }
+          ]
+        },
+        "make_reservation": {
+          "id": "make_reservation",
+          "type": "message",
+          "content": "We accept reservations by phone or online.\n\nPhone: 03-1234-5678\nOnline: www.example.com/reservation\n\nHours: 11:00-22:00\nClosed: Every Tuesday",
+          "voiceFile": "make_reservation_en.wav",
+          "next": "end_with_qr"
+        },
+        "cancel_reservation": {
+          "id": "cancel_reservation",
+          "type": "message",
+          "content": "For reservation changes or cancellations, please call us.\n\nPhone: 03-1234-5678\nHours: 10:00-21:00\n\n※For same-day cancellations, please call as early as possible.",
+          "voiceFile": "cancel_reservation_en.wav",
+          "next": "end_with_qr"
+        },
+        "check_reservation": {
+          "id": "check_reservation",
+          "type": "message",
+          "content": "You can check your reservation by phone or online.\n\nPhone: 03-1234-5678\nCheck online: www.example.com/check\n\n※Please have your reservation number ready.",
+          "voiceFile": "check_reservation_en.wav",
+          "next": "end_with_qr"
+        },
+        "menu_info": {
+          "id": "menu_info",
+          "type": "message",
+          "content": "Here's our menu information:\n\n・Japanese Course: From ¥3,000\n・Western Course: From ¥2,500\n・Kids Menu: ¥1,200\n・All-you-can-drink: +¥1,500\n\nPlease check our display for the latest menu.",
+          "voiceFile": "menu_info_en.wav",
+          "next": "end_with_qr"
+        },
+        "hours_info": {
+          "id": "hours_info",
+          "type": "message",
+          "content": "Our opening hours:\n\nHours: 11:00-22:00 (Last order 21:30)\nClosed: Every Tuesday\n\n※Hours may change during holidays and year-end seasons.",
+          "voiceFile": "hours_info_en.wav",
+          "next": "end_with_qr"
+        },
+        "access_info": {
+          "id": "access_info",
+          "type": "message",
+          "content": "Access & Parking information:\n\nAddress: Tokyo, Shibuya-ku ○○1-2-3\nNearest station: JR Yamanote Line \"Shibuya Station\" 5 min walk\n\nParking: 3 spaces in front of store\n※If full, please use nearby coin parking.",
+          "voiceFile": "access_info_en.wav",
+          "next": "end_with_qr"
+        },
+        "end_with_qr": {
+          "id": "end_with_qr",
+          "type": "message",
+          "content": "If you have any questions, please feel free to ask.\n\nYou can scan this QR code for more detailed information.",
+          "voiceFile": "end_with_qr_en.wav",
+          "next": "final"
+        },
+        "final": {
+          "id": "final",
+          "type": "choice",
+          "content": "Do you have any other questions?",
+          "voiceFile": "final_en.wav",
+          "choices": [
+            {
+              "id": "restart",
+              "text": "Start over",
+              "keywords": ["start", "restart", "beginning"],
+              "excludeKeywords": [],
+              "next": "start"
+            },
+            {
+              "id": "finish",
+              "text": "Finish",
+              "keywords": ["finish", "end", "done"],
+              "excludeKeywords": [],
+              "next": "thank_you"
+            }
+          ]
+        },
+        "thank_you": {
+          "id": "thank_you",
+          "type": "message",
+          "content": "Thank you for visiting. We look forward to seeing you again!",
+          "voiceFile": "thank_you_en.wav"
+        }
+      }
+    }
+  }
+}
